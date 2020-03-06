@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="24c0367c-efd3-47e7-80e9-6623b9279107" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OTPapp/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OTPapp/db.sqlite3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OTPapp/static/css/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OTPapp/templates/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OTPapp/templates/signin.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OTPapp/templates/signup.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OTPapp/templates/template.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/OTPapplication.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/OTPapplication.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OTPapp/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/OTPapp/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OTPapp/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/OTPapp/app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,34 +110,51 @@
       <option name="presentableId" value="Default" />
       <updated>1581429693583</updated>
       <workItem from="1581429697215" duration="95000" />
+      <workItem from="1583157310352" duration="175000" />
     </task>
+    <task id="LOCAL-00001" summary="Database set up, sign up and login done">
+      <created>1583157406489</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1583157406489</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Database set up, sign up and login done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Database set up, sign up and login done" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="590" y="257" key="#com.intellij.ide.util.ExportDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582653028512" />
+    <state x="551" y="114" key="CommitChangelistDialog2" timestamp="1583157405895">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="551" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583157405895" />
     <state x="268" y="275" key="FileChooserDialogImpl" timestamp="1582632511608">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="268" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1582632511608" />
-    <state width="1877" height="280" key="GridCell.Tab.0.bottom" timestamp="1583157376276">
+    <state width="1877" height="280" key="GridCell.Tab.0.bottom" timestamp="1583157484913">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="280" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583157376276" />
-    <state width="1877" height="280" key="GridCell.Tab.0.center" timestamp="1583157376275">
+    <state width="1877" height="280" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583157484913" />
+    <state width="1877" height="280" key="GridCell.Tab.0.center" timestamp="1583157484913">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="280" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583157376275" />
-    <state width="1877" height="280" key="GridCell.Tab.0.left" timestamp="1583157376274">
+    <state width="1877" height="280" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583157484913" />
+    <state width="1877" height="280" key="GridCell.Tab.0.left" timestamp="1583157484913">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="280" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583157376274" />
-    <state width="1877" height="280" key="GridCell.Tab.0.right" timestamp="1583157376275">
+    <state width="1877" height="280" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583157484913" />
+    <state width="1877" height="280" key="GridCell.Tab.0.right" timestamp="1583157484913">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="280" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583157376275" />
+    <state width="1877" height="280" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583157484913" />
     <state x="0" y="162" key="SettingsEditor" timestamp="1582638906647">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
