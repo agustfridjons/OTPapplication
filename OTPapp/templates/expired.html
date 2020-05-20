@@ -1,0 +1,16 @@
+{% extends 'template.html' %}
+
+{% block head %}
+    <title>SafeSpace</title>
+{% endblock %}
+
+{% block body %}
+        <h2>Confirmation link expired</h2>
+        <p>Send a new link</p>
+        <form class="form" action="/expired" method="POST">
+            <div>{{ message }}</div>
+            <label for="username">Enter your email</label>
+            <input type="text" name="email" id="email" placeholder="Your email">
+            <input type="submit" value="Send a new link">
+        </form>
+{% endblock %}

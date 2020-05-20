@@ -44,7 +44,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../overthinkers" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -111,6 +111,8 @@
       <updated>1581429693583</updated>
       <workItem from="1581429697215" duration="95000" />
       <workItem from="1583157310352" duration="175000" />
+      <workItem from="1585565393351" duration="1804000" />
+      <workItem from="1585838862945" duration="8000" />
     </task>
     <task id="LOCAL-00001" summary="Database set up, sign up and login done">
       <created>1583157406489</created>
@@ -135,10 +137,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="551" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583157405895" />
-    <state x="268" y="275" key="FileChooserDialogImpl" timestamp="1582632511608">
+    <state x="268" y="275" key="FileChooserDialogImpl" timestamp="1585838868232">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="268" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1582632511608" />
+    <state x="268" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1585838868232" />
     <state width="1877" height="280" key="GridCell.Tab.0.bottom" timestamp="1583157484913">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -159,10 +161,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="0" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1582638906647" />
-    <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1582729382447">
+    <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1585838862580">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582729382447" />
+    <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585838862580" />
     <state x="289" y="440" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583156762528">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
