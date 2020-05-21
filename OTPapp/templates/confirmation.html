@@ -1,0 +1,15 @@
+{% extends 'template.html' %}
+
+{% block head %}
+    <title>SafeSpace</title>
+{% endblock %}
+
+{% block body %}
+        <h2>Check your email for a confirmation 'One Time Password'</h2>
+        <form class="form" action="/confirm/{{ user }}" method="POST">
+            <div>{{ message }}</div>
+            <label for="OTP">Enter your one time password</label>
+            <input type="text" name="OTP" id="OTP" placeholder="One time password">
+            <input type="submit" value="Confirm and login">
+        </form>
+{% endblock %}

@@ -1,3 +1,6 @@
+import base64
+import random
+import string
 from datetime import datetime
 from flask import Flask, render_template, url_for, request, redirect, session
 from flask_sqlalchemy import SQLAlchemy
@@ -33,43 +36,6 @@ class User(db.Model):
 @app.route('/')
 def index():
     return render_template('index.html')
-
-
-@app.route('/expired', methods=['POST', 'GET'])
-def emailExpired():
-    if request.method == 'POST':
-        email = request.form['email']
-        account = User.query.filter_by(email=email).first()
-        user_exists = account != None
-        if user_exists:
-            sendConfirmationEmail(email)
-            return render_template('expired.html', message="Email sent!")
-    else:
-        return render_template('expired.html', message="")
-
-
-#User has an hour to respond
-@app.route('/confirm_email/<token>')
-def confirmEmail(token):
-    try:
-        email = URLSS.loads(token, salt='rMb2LL4smLvY5Z8x2KSbP', max_age=3600)
-    except SignatureExpired:
-        return render_template('expired.html', message="")
-    account = User.query.filter_by(email=email).first()
-    user_exists = account != None
-    if user_exists:
-        account.email_confirmed = True
-        db.session.commit()
-        return render_template('confirmemail.html')
-    else:
-        return render_template('expired.html', message="Error confirming email")
-
-def sendConfirmationEmail(email):
-    token = URLSS.dumps(email, salt='rMb2LL4smLvY5Z8x2KSbP')
-    msg = Message('Confirm Email', sender='gustividdi@gmail.com', recipients=[email])
-    link = url_for('confirmEmail', token=token, _external=True)
-    msg.body = 'Your confirmation link is {}'.format(link)
-    mail.send(msg)
 
 @app.route('/signup', methods=['POST', 'GET'])
 def signUp():
@@ -128,11 +94,14 @@ def signIn():
         account = User.query.filter_by(username=username).first()
         user_exists = account != None
 
+        if password == None:
+            return redirect(url_for('signIn'))
+
         # If username exists and password is right send OTP
         if user_exists & (account.password == password):
             if account.email_confirmed: #TODO email OPT
-                session['username'] = account.username
-                return redirect(url_for('index'))
+                sendOTP(account.email)
+                return redirect('/confirm/'+ account.username)
             else:
                 return 'Invalid username or password, <a href="/expired"> email might not have been confirmed</a>'
         else:
@@ -156,11 +125,92 @@ def signup_error(id):
         message = 'Passwords have to match'
     return render_template('signup.html', message=message)
 
+
 # Takes User out of session
 @app.route('/signout')
 def signOut():
     session.pop('username', None)
     return redirect(url_for('index'))
+
+
+@app.route('/confirm/<username>', methods=['POST', 'GET'])
+def confirmOTP(username):
+    if request.method == 'POST':
+        timer = (datetime.now() - session['OTPTimer']).seconds
+        if timer < 1800:
+            if hashOTP(request.form['OTP']) == session['OTP']:
+                session['username'] = username
+                session.pop('OTP', None)
+                session.pop('OTPTimer', None)
+                return redirect(url_for('index'))
+            else:
+                msg = 'Wrong password'
+                return render_template('confirmation.html', message=msg, user=username)
+        else:
+            account = User.query.filter_by(username=username).first()
+            sendOTP(account.email)
+            return render_template('confirmation.html', message='Password expired, we sent a new one check your mail', user=username)
+    else:
+        print(username)
+        return render_template('confirmation.html', message='', user=username)
+
+
+@app.route('/expired', methods=['POST', 'GET'])
+def emailExpired():
+    if request.method == 'POST':
+        email = request.form['email']
+        account = User.query.filter_by(email=email).first()
+        user_exists = account != None
+        if user_exists:
+            sendConfirmationEmail(email)
+            return render_template('expired.html', message="Email sent!")
+    else:
+        return render_template('expired.html', message="")
+
+
+#User has an hour to respond
+@app.route('/confirm_email/<token>')
+def confirmEmail(token):
+    try:
+        email = URLSS.loads(token, salt='rMb2LL4smLvY5Z8x2KSbP', max_age=3600)
+    except SignatureExpired:
+        return render_template('expired.html', message="")
+    account = User.query.filter_by(email=email).first()
+    user_exists = account != None
+    if user_exists:
+        account.email_confirmed = True
+        db.session.commit()
+        return render_template('confirmemail.html')
+    else:
+        return render_template('expired.html', message="Error confirming email")
+
+
+def sendConfirmationEmail(email):
+    token = URLSS.dumps(email, salt='rMb2LL4smLvY5Z8x2KSbP')
+    msg = Message('Confirm Email', recipients=[email])
+    link = url_for('confirmEmail', token=token, _external=True)
+    msg.body = 'Your confirmation link is {}'.format(link)
+    mail.send(msg)
+
+
+def sendOTP(email):
+    msg = Message('Safespace One Time Password', recipients=[email])
+    OTP = generateOTP()
+    session['OTP'] = hashOTP(OTP)
+    session['OTPTimer'] = datetime.now()
+    msg.body = 'Your one time password is: ' + OTP + ' use it to login to safespace.'
+    mail.send(msg)
+
+
+def hashOTP(OTP):
+    hashString = ''.join(OTP + 'rMb2LL4smLvY5Z8x2KSbP')
+    return base64.standard_b64encode(hashString.encode('utf-8')).decode('utf-8')
+
+
+def generateOTP():
+    lettersAndDigits = string.ascii_uppercase + string.digits
+    return ''.join((random.choice(lettersAndDigits) for i in range(8)))
+
 
 if __name__ == '__main__':
     app.run(debug=True)
